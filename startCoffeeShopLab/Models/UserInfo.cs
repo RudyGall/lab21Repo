@@ -17,9 +17,9 @@ namespace startCoffeeShopLab.Models
             Password = "";
             Date = "";
             Age = "";
-            Human = "";
+            SSN = "";
         }
-        public UserInfo(string firstName, string lastName, string email, string phoneNumber, string password, string date, string age, string human)
+        public UserInfo(string firstName, string lastName, string email, string phoneNumber, string password, string date, string age, string ssn)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -28,7 +28,7 @@ namespace startCoffeeShopLab.Models
             Password = password;
             Date = date;
             Age = age;
-            Human = human;
+            SSN = ssn;
         }
             [Required]
             [RegularExpression("^[a-zA-Z]{2,}$")]
@@ -55,11 +55,11 @@ namespace startCoffeeShopLab.Models
             public string Date { set; get; }
 
             [Required]
-            [RegularExpression(@"^$")]
+            [RegularExpression(@"^[1-9]$|^[1-9][0-9]$|^(100)$")]
             public string Age { set; get; }
 
             [Required]
-            [RegularExpression(@"^$")]
-            public string Human { set; get; }
+            [RegularExpression(@"^\d{3}-?\d{2}-?\d{4}$")]
+            public string SSN { set; get; }
     }
     }

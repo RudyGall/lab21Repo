@@ -64,7 +64,7 @@ var ValiDate = function () {
         document.getElementById("message6").style.color = "red"
     }
 }
-var agePattern = /^$/
+var agePattern = /^[1-9]$|^[1-9][0-9]$|^(100)$/
 var ValidateAge = function () {
     if (agePattern.test(document.getElementById("AGE").value)) {
         document.getElementById("message7").style.color = "green"
@@ -75,9 +75,9 @@ var ValidateAge = function () {
         document.getElementById("message7").style.color = "red"
     }
 }
-var humanPattern = /^$/
-var ValidateHuman = function () {
-    if (humanPattern.test(document.getElementById("HMN").value)) {
+var ssnPattern = /^\d{3}-?\d{2}-?\d{4}$/
+var ValidateSSN = function () {
+    if (ssnPattern.test(document.getElementById("SSN").value)) {
         document.getElementById("message8").style.color = "green"
         document.getElementById("message8").innerHTML = "Valid"
     }
