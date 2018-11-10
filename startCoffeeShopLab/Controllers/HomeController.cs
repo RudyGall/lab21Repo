@@ -11,23 +11,24 @@ namespace startCoffeeShopLab.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new formViewModel();
+            return View(model);
         }
-
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult SubmitForm(formViewModel model)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            if(!ModelState.IsValid)
+            {
+                ViewBag.Failure = "Something went wrong";
+                return
+            }
+            else
+            {
+                ViewBag.Success = "Success";
+            }
+            return null;
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        public ActionResult UserRegistration()
+        /*public ActionResult UserRegistration()
         {
             ViewBag.Message = "User Registration";
 
@@ -44,6 +45,6 @@ namespace startCoffeeShopLab.Controllers
             {               
                 return View("Error");
             }
-        }
+        }*/
     }
 }
